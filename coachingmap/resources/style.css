@@ -1,0 +1,351 @@
+body {
+	background: #333;
+	background-image: url('./map.jpg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	overflow: hidden;
+    text-shadow: 2px 2px 0px black, 0px 0px 3px black !important;
+    font-family: 'Exo 2'!important;
+    font-weight: bold!important;
+	
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/exo2/v10/7cH1v4okm5zmbvwkAx_sfcEuiD8jWfWsN9C_nps.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/exo2/v10/7cH1v4okm5zmbvwkAx_sfcEuiD8jWfWsOdC_.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.aipom, .audino, .ambipom, .corphish, .lillipup, .bouffalant, .ludicolo, .vespiquen, .combee, .zapdos, .rotom, .drednaw,
+.regirock, .regice {
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background-color: #ffffff4d;
+}
+.aipom, .audino, .ambipom, .corphish, .lillipup, .bouffalant, .ludicolo, .vespiquen, .combee {
+	opacity: 0.4;
+}
+.zapdos, .rotom, .drednaw, .regice, .regirock {
+	opacity: 0.7;
+}
+
+.map-cont {
+	position: absolute;
+	margin: auto;
+	display: inline-block;
+	width: 100%;
+}
+
+.mbg {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    margin: auto;
+	width: 100%;
+}
+.mbg, .map-cont {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);	
+	transition: transform 0.35s ease-in-out 0.1s;
+}
+.app.mirror > .mbg, .app.mirror > .map-cont {
+	transform: scaleX(-1) translate(50%, -50%);
+}
+
+.marker {
+	position: absolute;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	background-size: 100% 100%;
+	width: 3%;
+	aspect-ratio: 1;
+	transition: opacity 0.5s, background-image 0.9s;
+}
+.goal {
+	position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+	background-size: 100% 100%;
+	aspect-ratio: 1;
+	width: 6%;
+	transition: filter 0.5s, opacity 0.5s, background-image 0.2s ease-in-out 0.2s;
+}
+
+.enemygoal { background-image: url(/resources/web/Goal_Enemy.png); }
+.friendlygoal { background-image: url(/resources/web/Goal_Friendly.png); }
+.app.mirror > * > .enemygoal { background-image: url(/resources/web/Goal_Friendly.png); }
+.app.mirror > * > .friendlygoal { background-image: url(/resources/web/Goal_Enemy.png); }
+
+.zapdos { background-image: url(./img/pokemon/Rayquaza.png); width: 6% }
+
+.rotom { background-image: url(./img/pokemon/Regieleki.png); width: 5% }
+.drednaw { background-image: url(./img/pokemon/Registeel.png); width: 5% }
+.regice { background-image: url(./img/pokemon/Regice.png); width: 5% }
+.regirock { background-image: url(./img/pokemon/Regirock.png); width: 5% }
+
+.aipom { background-image: url(/resources/pokemon/190.png); }
+.audino { background-image: url(/resources/pokemon/531.png); }
+.corphish { background-image: url(/resources/pokemon/341.png); }
+
+.combee { background-image: url(/resources/pokemon/415.png); width: 2.5% }
+.vespiquen { background-image: url(/resources/pokemon/416.png); width: 3.5% }
+
+.lillipup { background-image: url(/resources/pokemon/506.png); }
+.bouffalant { background-image: url(/resources/pokemon/626.png); width: 4.5% }
+.ludicolo { background-image: url(/resources/pokemon/272.png); width: 4.5% }
+
+.final > .aipom { background-image: url(/resources/pokemon/424.png); }
+.final > .corphish { background-image: url(/resources/pokemon/342.png); }
+.final > .lillipup { background-image: url(/resources/pokemon/507.png); }
+
+:not(.final) > .zapdos,
+:not(.initial) > .no-respawn {
+	opacity: 0;
+}
+.final > .drednaw, .final > .rotom, .final > .regice, .final > .regirock,
+:not(.objective) > .drednaw, :not(.objective) > .rotom, :not(.objective) > .regice, :not(.objective) > .regirock { 
+	opacity: 0;
+}
+.flip {
+	transform: scaleX(-1);
+}
+.etopt1 > #etopt1, .etopt2 > #etopt1, .etopt2 > #etopt2,
+.ftopt1 > #ftopt1, .ftopt2 > #ftopt1, .ftopt2 > #ftopt2,
+.ebott1 > #ebott1, .ebott2 > #ebott1, .ebott2 > #ebott2,
+.fbott1 > #fbott1, .fbott2 > #fbott1, .fbott2 > #fbott2 {
+	opacity: 0.6;
+    filter: grayscale(1);
+}
+
+.et1, .eb1, .ft1, .fb1 {
+	opacity: 0%;
+}
+
+.etopt1 > .et1, .etopt2 > .et1,
+.ebott1 > .eb1, .ebott2 > .eb1,
+.ftopt1 > .ft1, .ftopt2 > .ft1,
+.fbott1 > .fb1, .fbott2 > .fb1 {
+	opacity: 0.4;
+}
+.btnholder {
+	position: absolute;
+	top: 0;
+	width: 15%;
+	left: 40.5%;
+	height: 4%;
+	background: #0000008a;
+	z-index: 100;
+	/* border-radius: 0 0 25% 25%; */
+	display: flex;
+	overflow: hidden;
+	clip-path: url(#timer-clip-path);
+	padding-left: 1%;
+	padding-right: 1%;
+}
+.btnholder:hover {
+	cursor: pointer;
+}
+.btnholder > div {
+    height: 100%;
+    width: 20%;
+    color: #bababa;
+    text-align: center;
+    vertical-align: middle;
+	align-items: center;
+    line-height: 3.5vh;
+    /* clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%); */
+    font-size: 2.5vh;
+	transition: text-shadow 0.3s, opacity 0.2s;
+	display: flex;
+}
+.btnholder > *:nth-child(2) {
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	width: 60%;
+}
+.btnholder > div > img {
+	aspect-ratio: 1;
+	height: 60%;
+	margin: auto;
+}
+.mirrorbtn, .resetbtn {
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-size: 75% 75%;
+	opacity: 0.7;
+}
+.mirrorbtn {
+	background-image: url(/img/icons/trade.svg);
+	background-position: left;
+}
+.resetbtn {
+	background-image: url(./reset.png);
+	background-position: right;
+	background-size: 60% 90%;
+}
+.btnholder > .mirrorbtn:hover, .btnholder > .resetbtn:hover,
+.timerbtn > #dec-time:hover, .timerbtn > #inc-time:hover {
+	text-shadow: 2px 2px #76453c, -2px -2px #5a4aad;
+	opacity: 1;
+}
+.btnholder > .toggled {
+	color: white;
+}
+.timerbtn { display: inline-flex; }
+.timerbtn > #time {
+	width: 60%;
+}
+.timerbtn:hover > #dec-time, .timerbtn:hover > #inc-time {
+	opacity: 1;
+}
+.timerbtn > #dec-time, .timerbtn > #inc-time {
+	height: 100%;
+    width: 20%;
+	transition: text-shadow 0.3s, opacity 0.2s;
+	opacity: 0;
+}
+/* Draggable */
+.draggable-container {
+    top: 50%;
+    transform: translate(0,-50%);
+    position: fixed;
+    height: fit-content;
+}
+.draggable-container.red-side {
+	right: 0;
+}
+.draggable-container.blue-side {
+	left: 0;
+}
+.draggable-items {
+	display: flex;
+	flex-wrap: wrap;
+	border-top: 2px solid #2d2d2d7a;
+	padding: 2px;
+	z-index: 1;
+	column-rule-width: thin;
+	width: calc(7vw + 9px);
+	min-height: calc(7vw + 9px);
+}
+.draggable-items.blue-side {
+    background: #5a4aad;
+	border-radius: 0px 10px 10px 0px;
+	flex-direction: row;
+}
+.draggable-items.red-side {
+    background: #76453c;
+	border-radius: 10px 0px 0px 10px;
+	flex-direction: row-reverse;
+}
+.draggable {
+	height: 3.5vw;
+	width: 3.5vw;
+    background-position: center;
+	background-size: contain;
+    background-repeat: no-repeat;
+    flex: none;
+    cursor: pointer;
+	z-index: 10;
+}
+.draggable:hover {
+  cursor: pointer;
+  box-shadow: rgba(0,0,0,.3) 3px 3px 4px 0;
+  transform: translateY(-2px);
+  z-index: 20;
+}
+.blue-side >.draggable {
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);	
+}
+.red-side >.draggable {
+    border: 2px solid #e4825c;
+    border-radius: 50%;
+    background-color: #ca6e4a4d;
+}
+
+.blue-side >.draggable {
+	border: 2px solid #8473fd;
+    border-radius: 50%;
+    background-color: #7c68ec4d;
+}
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	font-size: 2vh;
+	line-height: 3vh;
+	text-align: center;
+}
+a {
+	text-decoration: none;
+}
+.author, .team {
+	color: #bababa;
+	position: absolute;
+	bottom: 0;
+	padding: 1vh;
+}
+.author {
+	right: 0;
+}
+.team {
+	left: 0;
+}
+.author::before, .team::before  {
+    content: ' ';
+    width: 110%;
+    background: #000000a4;
+    height: 100%;
+    position: absolute;
+	z-index: 99;
+	bottom: 0;
+}
+.author::before {
+    transform: skewX(-10deg);
+	right: -10%;
+	border-radius: 0.5vh 0 0 0;
+}
+.team::before {
+    transform: skewX(10deg);
+	left: -10%;
+	border-radius: 0 0.5vh 0 0;
+}
+.team > span, .author > span {
+    z-index: 100;
+    position: relative;	
+}
+@media (min-aspect-ratio: 1774/1335) {
+	.mbg {
+		height: 100%;
+		width: auto !important;
+	}
+	.draggable {
+		height: 4vh;
+		width: 4vh;
+	}
+	.draggable-items {
+		width: calc(8vh + 50px);
+		min-height: calc(8vh + 9px);
+	}
+}
