@@ -17,6 +17,7 @@ Aqui estão as próximas features que virão em breve:
 - [x] Adicionar função que permita riscar sobre o mapa.
 - [ ] Adicionar os farms ao mapa de maneira interativa com o timer ao topo.
 - [ ] Adicionar as estatisticas dos farms (energia Aeos, attack, hp, exp etc).
+- [ ] Adicionar goal e contagem de pontos.
 
 #### Changelog
 - 01/05/2023: Lançada versão 1.0
