@@ -5,10 +5,10 @@ function prepareContext(canvasElement) {
   let rect = canvasElement.getBoundingClientRect();
   canvasElement.width = rect.width * dpr;
   canvasElement.height = rect.height * dpr;
- 
+
   let context = canvasElement.getContext("2d");
   context.scale(dpr, dpr);
-  
+
   return context;
 }
 
@@ -27,30 +27,30 @@ let eventListener = false;
 let pencilButton = document.getElementById("pencilbtn");
 
 pencilButton.addEventListener("click", event => {
-	if (eventListener){
-		theCanvas.removeEventListener("mousedown", start, false);
-		theCanvas.removeEventListener("mouseup", end, false);
-		theCanvas.removeEventListener("mousemove", move, false);
-		pencilButton.style.opacity = 0.6;
+  if (eventListener) {
+    theCanvas.removeEventListener("mousedown", start, false);
+    theCanvas.removeEventListener("mouseup", end, false);
+    theCanvas.removeEventListener("mousemove", move, false);
+    pencilButton.style.opacity = 0.6;
 
-		eventListener = false;
-	} else {
-		theCanvas.addEventListener("mousedown", start);
-		theCanvas.addEventListener("mouseup", end);
-		theCanvas.addEventListener("mousemove", move, false);
-		pencilButton.style.opacity = 1;
+    eventListener = false;
+  } else {
+    theCanvas.addEventListener("mousedown", start);
+    theCanvas.addEventListener("mouseup", end);
+    theCanvas.addEventListener("mousemove", move, false);
+    pencilButton.style.opacity = 1;
 
-		eventListener = true;
-	}
+    eventListener = true;
+  }
 });
 
 clearButton.addEventListener("click", event => {
   clearCanvas(theContext);
 });
 
- 
+
 function clearCanvas(context) {
-  context.clearRect(0, 0, context.canvas.width, context.canvas.height);  
+  context.clearRect(0, 0, context.canvas.width, context.canvas.height);
 }
 
 function start(event) {
@@ -59,7 +59,7 @@ function start(event) {
     setLineProperties(theContext);
 
     theContext.beginPath();
-    
+
     let elementRect = event.target.getBoundingClientRect();
     theContext.moveTo(event.clientX - elementRect.left, event.clientY - elementRect.top);
   }
