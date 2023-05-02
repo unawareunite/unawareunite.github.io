@@ -128,17 +128,17 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 	let mir = document.querySelector('.mirrorbtn');
 	// let fin = document.querySelector('.timerbtn');
-	let res = document.querySelector('.resetbtn');
+	let res = document.querySelector('#resetbtn');
 	let minus = document.querySelector('#dec-time');
 	let plus = document.querySelector('#inc-time');
 	
-	minus.onclick = function() { changeTime(-30) }
-	plus.onclick = function() { changeTime(+30) }
+	minus.onclick = function() { changeTime(-10) }
+	plus.onclick = function() { changeTime(+10) }
 	
-	mir.onclick = function() {
-		mir.classList.toggle('toggled')
-		app.classList.toggle('mirror')
-	}
+	// mir.onclick = function() {
+	// 	mir.classList.toggle('toggled')
+	// 	app.classList.toggle('mirror')
+	// }
 	res.onclick = function() {
 		for (let c of document.getElementsByClassName("draggable-items")) {
 			for (let e of c.children) {

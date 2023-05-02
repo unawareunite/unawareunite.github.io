@@ -16,6 +16,11 @@ body {
             user-select: none;
 }
 
+#drawing_canvas {
+	width: 95%; 
+	height: 90%;
+}
+
 @font-face {
   font-family: 'Exo 2';
   font-style: normal;
@@ -204,6 +209,10 @@ body {
 	background-position: right;
 	background-size: 60% 90%;
 }
+#pencilbtn {
+	opacity: 0.6;
+}
+
 .btnholder > .mirrorbtn:hover, .btnholder > .resetbtn:hover,
 .timerbtn > #dec-time:hover, .timerbtn > #inc-time:hover {
 	text-shadow: 2px 2px #76453c, -2px -2px #5a4aad;
