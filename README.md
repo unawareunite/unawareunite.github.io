@@ -21,3 +21,4 @@ Aqui estão as próximas features que virão em breve:
 - 02/05/2023:
   - [FEATURE] Adicionada função que permite riscar sobre o mapa
   - [BUGFIX] Comfey adicionada à lista de Pokémon
+  - [BUGFIX] Aumentado o zoom no mapa
