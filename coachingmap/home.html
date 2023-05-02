@@ -1,19 +1,36 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Unite Coaching Map</title>
 	<link rel="icon" type="image/x-icon" href="./resources/img/icons/favicon.png">
-<link rel="stylesheet" href="./resources/style.css"></head>
-<body><svg viewBox="0 0 682 125" xmlns="http://www.w3.org/2000/svg" style="position: absolute; pointer-events: none" aria-hidden="true"><defs><clippath id="timer-clip-path" clipPathUnits="objectBoundingBox" transform="scale(0.00146627566 0.008)"><path d="M6.172 0h669.656a6 6 0 015.905 7.06l-20.273 113a6 6 0 01-5.906 4.94H26.446a6 6 0 01-5.906-4.94L.267 7.06A6 6 0 016.172 0z" fill="#000" fill-rule="evenodd"></path></clippath></defs></svg>
-<div class="app">
-	<div class="btnholder">
-		<div class=""><img id="resetbtn" src="./resources/img/icons/reset.png"></div>
-		<div class="timerbtn"><div id="dec-time">-</div><span id="time">10:00</span><div id="inc-time">+</div></div>
-		<div class="pencilbtn"><img id="pencilbtn" src="./resources/img/icons/pencil.png"></div>
-		<div class="clearbtn"><img id="clearbtn" src="./resources/img/icons/eraser.png"></div>
-	</div>
-	<canvas id="drawing_canvas">
-		<div class="mbg">
-			<div class="map-cont initial" data-time="600" style="width: 1163px; height: 80%;">
-				<!-- <div class="marker drednaw" style="top: 85%; left: 46%; width: 4%;"></div>
+	<link rel="stylesheet" href="./resources/style.css">
+</head>
+
+<body><svg viewBox="0 0 682 125" xmlns="http://www.w3.org/2000/svg" style="position: absolute; pointer-events: none"
+		aria-hidden="true">
+		<defs>
+			<clippath id="timer-clip-path" clipPathUnits="objectBoundingBox" transform="scale(0.00146627566 0.008)">
+				<path
+					d="M6.172 0h669.656a6 6 0 015.905 7.06l-20.273 113a6 6 0 01-5.906 4.94H26.446a6 6 0 01-5.906-4.94L.267 7.06A6 6 0 016.172 0z"
+					fill="#000" fill-rule="evenodd"></path>
+			</clippath>
+		</defs>
+	</svg>
+	<div class="app">
+		<div class="btnholder">
+			<div class=""><img id="resetbtn" src="./resources/img/icons/reset.png"></div>
+			<div class="timerbtn">
+				<div id="dec-time">-</div><span id="time">10:00</span>
+				<div id="inc-time">+</div>
+			</div>
+			<div class="pencilbtn"><img id="pencilbtn" src="./resources/img/icons/pencil.png"></div>
+			<div class="clearbtn"><img id="clearbtn" src="./resources/img/icons/eraser.png"></div>
+		</div>
+		<canvas id="drawing_canvas">
+			<div class="mbg">
+				<div class="map-cont initial" data-time="600" style="width: 1163px; height: 80%;">
+					<!-- <div class="marker drednaw" style="top: 85%; left: 46%; width: 4%;"></div>
 				<div class="marker regice" style="top: 87%; left: 42%; width: 4%;"></div>
 				<div class="marker regirock" style="top: 87%; left: 50%; width: 4%;"></div>
 				<div class="marker rotom" style="top: 24%; left: 46.5%; width: 4%;"></div>
@@ -110,36 +127,43 @@
 				<div class="marker corphish et1" style="top: 31%; left: 70%;"></div>
 				<div class="marker corphish fb1 flip" style="top: 60%; left: 26.5%;"></div>
 				<div class="marker corphish eb1" style="top: 60%; left: 70%;"></div> -->
+				</div>
 			</div>
-	</div>
-</canvas>
-<div class="draggable-container blue-side"></div>
-<div class="draggable-container red-side"></div>
-<div class="team"><span>Theia Sky Ruins Coaching Map</span></div></a>
-<div class="author"><span>By: UNAWARE Team / Told3<span></span></span></div>
-<script>
-const sides = ["red-side", "blue-side"]
-const pokemon = [
-	["003", "025", "038-a", "282", "658", "700", "724", "815", "845", "884", "Delphox", "Dragapult", "Espeon", "Glaceon", "Mew", "Chandelure"],
-	["009", "080", "143", "473", "558", "709", "820", "Lapras", "Goodra"],
-	["006", "068", "147", "445", "448", "681", "763", "Azumarill", "Buzzwole", "Scizor", "Tyranitar", "Urshifu", "Zacian"],
-	["040", "122", "242", "720", "830", "Clefable", "Sableye", "Comfey"],
-	["094", "807", "663", "359", "Scyther", "Dodrio", "Zoroark"]
-]
-for (let s of sides) {
-	let cont = document.getElementsByClassName("draggable-container " + s)[0]
-	for (let category of pokemon) {
-		let di = document.createElement("div")
-		di.className = "draggable-items " + s
-		for (let num of category) {
-			let mon = document.createElement("div")
-			mon.className = "draggable"
-			mon.style = 'background-image: url("./resources/img/pokemon/' + num + '.png");'
-			di.appendChild(mon)
-		}
-		cont.appendChild(di)
-	}
-}
-</script>
-<script type="text/javascript" src="./resources/drawing.js"></script>
-<script type="text/javascript" src="./resources/script.js"></script></body></html>
+		</canvas>
+		<div class="draggable-container blue-side"></div>
+		<div class="draggable-container red-side"></div>
+		<div class="team"><span>Theia Sky Ruins Coaching Map</span></div></a>
+		<div class="author"><span>By: UNAWARE Team / Told3<span></span></span></div>
+		<script>
+			const sides = ["red-side", "blue-side"]
+			const pokemon = [
+				["003", "025", "038-a", "282", "658", "700", "724", "815", "845", "884", "Delphox", "Dragapult", "Espeon",
+					"Glaceon", "Mew", "Chandelure"
+				],
+				["009", "080", "143", "473", "558", "709", "820", "Lapras", "Goodra"],
+				["006", "068", "147", "445", "448", "681", "763", "Azumarill", "Buzzwole", "Scizor", "Tyranitar", "Urshifu",
+					"Zacian"
+				],
+				["040", "122", "242", "720", "830", "Clefable", "Sableye", "Comfey"],
+				["094", "807", "663", "359", "Scyther", "Dodrio", "Zoroark"]
+			]
+			for (let s of sides) {
+				let cont = document.getElementsByClassName("draggable-container " + s)[0]
+				for (let category of pokemon) {
+					let di = document.createElement("div")
+					di.className = "draggable-items " + s
+					for (let num of category) {
+						let mon = document.createElement("div")
+						mon.className = "draggable"
+						mon.style = 'background-image: url("./resources/img/pokemon/' + num + '.png");'
+						di.appendChild(mon)
+					}
+					cont.appendChild(di)
+				}
+			}
+		</script>
+		<script type="text/javascript" src="./resources/drawing.js"></script>
+		<script type="text/javascript" src="./resources/script.js"></script>
+</body>
+
+</html>
