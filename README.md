@@ -1,3 +1,5 @@
+<img src="/unaware_logo.png" width=35% height=35%>
+
 # Projetos da Unaware Unite 
 
 Bem-vindo(a) ao repositório da Unaware, um time competitivo de pokemon unite! Abaixo você vai ver os principais projetos que temos e mais informações sobre eles, como: data de atualização, próximas features que serão adicionadas e etc. Sinta-se à vontade para contribuir para os projetos e ajudá-los a crescer.
