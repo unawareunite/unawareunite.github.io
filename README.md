@@ -22,5 +22,6 @@ Aqui estão as próximas features que virão em breve:
 - 01/05/2023: Lançada versão 1.0
 - 02/05/2023:
   - [FEATURE] Adicionada função que permite riscar sobre o mapa
+  - [CHANGE] Timer agora muda de 10 em 10 segundos
+  - [CHANGE] Aumentado o zoom no mapa
   - [BUGFIX] Comfey adicionada à lista de Pokémon
-  - [BUGFIX] Aumentado o zoom no mapa
